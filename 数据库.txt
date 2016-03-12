@@ -1,0 +1,100 @@
+//创建数据库
+create database tcc;
+
+//创建临时车位表
+create table lscw(
+num char(20),
+plates char(20),
+park  char(20),
+in_time datetime,
+model char(10),
+primary key(num));
+
+
+//创建固定车位表
+create table gdcw(
+num char(10),
+name char(20),
+plates char(20),
+park char(20),
+online char(20),
+end_time date,
+state varchar(10),
+primary key(num));
+
+//创建按时间收费表
+create table sfsz(
+start_time time,
+end_time time,
+fee double(10,2));
+
+//创建车位表
+create table cw(
+cwnum char(20),
+state int,
+primary key(cwnum));
+
+//创建最后运行日期表
+create table cd(
+d date);
+
+//创建进出记录表
+create table jcjl(
+num char(20) not null,
+plates char(20) not null,
+dt datetime,
+state char(4));
+
+//创建缴费记录表
+create table jfjl(
+num varchar(20),
+dt datetime,
+fee double(10,2),
+m int);
+
+//创建月帐单表
+create table zd(
+d date,
+pay double(10,1),
+primary key(d));
+
+//创建登录密码表
+create table passward(
+p varchar(100));
+
+//向车位表插入数据
+insert into cw
+values('A101',0),
+('A102',0),
+('A103',0),
+('A104',0),
+('A105',0),
+('A106',0),
+('B101',0),
+('B102',0),
+('B103',0),
+('B104',0),
+('B105',0),
+('B106',0),
+('C101',0),
+('C102',0),
+('C103',0),
+('C104',0),
+('C105',0),
+('C106',0),
+('D101',0),
+('D102',0),
+('D103',0),
+('D104',0),
+('D105',0),
+('D106',0),
+('E101',0),
+('E102',0),
+('E103',0),
+('E104',0),
+('E105',0),
+('E106',0);
+
+//向登密码表中插入数据
+insert into passward
+values('81dc9bdb52d04dc20036dbd8313ed055');//初始密码1234对应的md5码
